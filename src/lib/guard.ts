@@ -4,6 +4,8 @@ import { COOKIE, secretoApiOk, tokenValido } from "./auth";
 
 /** Sesión web válida (cookie firmada). */
 export async function sesionValida(): Promise<boolean> {
+  // Demo pública: sin contraseña (src/lib/demo.ts). Nunca con datos reales.
+  if (process.env.ARMARIO_DEMO === "1") return true;
   const jar = await cookies();
   return tokenValido(jar.get(COOKIE)?.value);
 }

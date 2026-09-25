@@ -5,16 +5,11 @@ import { altaCompra, type AltaCompra } from "./compras";
 import ejemplo from "../../datos/ejemplo.json";
 
 /**
- * Modo demo (ARMARIO_DEMO=1): la contraseña se muestra en la entrada y los datos se
+ * Modo demo (ARMARIO_DEMO=1): la app queda ABIERTA, sin contraseña, y los datos se
  * reinician solos una vez al día con el armario de ejemplo y unos días de historial.
- * En tu propia versión NO actives este modo: borra todo lo que hay en la base.
+ * En tu propia versión NO actives este modo: cualquiera entraría y se borra todo cada día.
  */
 export const esDemo = process.env.ARMARIO_DEMO === "1";
-
-/** Contraseña que se muestra en la pantalla de entrada, solo en modo demo. */
-export function passwordDemo(): string | null {
-  return esDemo ? (process.env.ARMARIO_PASSWORD ?? "").trim() || null : null;
-}
 
 type Ejemplo = { prendas: unknown[]; outfits: { id: string; nombre: string; prendas: string[]; ocasion?: string }[]; compras: AltaCompra[] };
 

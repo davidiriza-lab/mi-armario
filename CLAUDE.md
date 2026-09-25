@@ -31,7 +31,7 @@ App personal de armario: qué ponerse cada día según lo que está limpio, lava
 
 ## Modo demo
 
-- `ARMARIO_DEMO=1` (`src/lib/demo.ts`) muestra la contraseña en la entrada y BORRA todas las tablas una vez al día para recargar `datos/ejemplo.json` con historial de muestra. Nunca lo actives en una versión con datos reales.
+- `ARMARIO_DEMO=1` (`src/lib/demo.ts`) deja la app ABIERTA sin contraseña y BORRA todas las tablas una vez al día para recargar `datos/ejemplo.json` con historial de muestra. Nunca lo actives en una versión con datos reales.
 
 ## La asesora
 

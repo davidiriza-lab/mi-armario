@@ -6,7 +6,7 @@ Registras tu ropa y las combinaciones que te gustan. La app sabe qué te pusiste
 
 La construyó [David Iriza](https://www.davidiriza.com) para su propio uso. Este repositorio es la versión limpia, sin sus datos, para que armes la tuya.
 
-**Pruébala:** [mi-armario-demo.vercel.app](https://mi-armario-demo.vercel.app). La contraseña aparece en la pantalla de entrada. Es pública: cualquiera puede mover cosas y todo se reinicia cada día. La asesora está apagada en la demo.
+**Pruébala:** [mi-armario-demo.vercel.app](https://mi-armario-demo.vercel.app). No pide contraseña. Es pública: cualquiera puede mover cosas y todo se reinicia cada día. La asesora está apagada en la demo.
 
 ## Qué hace
 

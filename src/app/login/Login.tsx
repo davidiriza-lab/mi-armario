@@ -37,16 +37,11 @@ function Form() {
   );
 }
 
-export function Login({ demo }: { demo: string | null }) {
+export function Login() {
   return (
     <div className="mx-auto flex min-h-[100dvh] max-w-sm flex-col justify-center px-5 py-10">
       <p className="kicker">{APP.nombre}</p>
       <h1 className="display" style={{ fontSize: "2.4rem", margin: ".4rem 0 1.4rem" }}>{APP.saludo}</h1>
-      {demo && (
-        <p className="tarjeta hundida mini" style={{ margin: "0 0 1rem" }}>
-          Esta es una demo pública. La contraseña es <b className="cifra" style={{ color: "var(--tinta)" }}>{demo}</b>
-        </p>
-      )}
       <Suspense>
         <Form />
       </Suspense>

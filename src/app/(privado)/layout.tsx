@@ -10,7 +10,7 @@ export default async function Privado({ children }: { children: React.ReactNode 
     <>
       {esDemo && (
         <p className="mini" style={{ margin: 0, padding: ".55rem 1rem", textAlign: "center", background: "var(--salvia-suave)", borderBottom: "1px solid var(--linea)" }}>
-          Demo pública: cualquiera puede mover cosas y todo se reinicia cada día.{" "}
+          Demo pública y abierta: cualquiera puede mover cosas y todo se reinicia cada día.{" "}
           <a href="https://github.com/davidiriza-lab/mi-armario" style={{ textDecoration: "underline", fontWeight: 600 }}>Arma la tuya</a>
         </p>
       )}

@@ -6,6 +6,8 @@ import { COOKIE, tokenValido } from "@/lib/auth";
  * Las API validan por su cuenta (sesión o x-armario-secret) y las ligas /i/<token> validan el token.
  */
 export function proxy(req: NextRequest) {
+  // Demo pública: sin contraseña (src/lib/demo.ts).
+  if (process.env.ARMARIO_DEMO === "1") return NextResponse.next();
   const { pathname } = req.nextUrl;
   if (pathname.startsWith("/login") || pathname.startsWith("/i/") || pathname.startsWith("/api/") || pathname === "/manifest.webmanifest" || /\.(png|jpg|jpeg|webp|svg|ico|txt)$/.test(pathname)) {
     return NextResponse.next();

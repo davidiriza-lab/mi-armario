@@ -1,6 +1,8 @@
+import { redirect } from "next/navigation";
 import { Login } from "./Login";
-import { passwordDemo } from "@/lib/demo";
+import { esDemo } from "@/lib/demo";
 
 export default function LoginPage() {
-  return <Login demo={passwordDemo()} />;
+  if (esDemo) redirect("/");
+  return <Login />;
 }
