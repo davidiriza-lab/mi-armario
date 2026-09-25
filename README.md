@@ -8,6 +8,8 @@ La construyó [David Iriza](https://www.davidiriza.com) para su propio uso. Este
 
 **Pruébala:** [mi-armario-demo.vercel.app](https://mi-armario-demo.vercel.app). No pide contraseña. Es pública: cualquiera puede mover cosas y todo se reinicia cada día. La asesora está apagada en la demo.
 
+El armario de ejemplo usa piezas reales de Zara México: nombres, referencias y composición de su catálogo. Las imágenes de cada prenda son ilustraciones generadas con IA a partir de esas piezas, no fotos de Zara, y los collages de cada combinación se arman solos con `scripts/collages.py`.
+
 ## Qué hace
 
 - **Vestir.** Tus combinaciones con prendas limpias para hoy, y una tira de días para programar la semana o corregir lo que usaste ayer. Lo que programas también cuenta: si el viernes te toca el pantalón negro, el jueves no te lo ofrece.

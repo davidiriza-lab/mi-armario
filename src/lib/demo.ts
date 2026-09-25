@@ -11,7 +11,7 @@ import ejemplo from "../../datos/ejemplo.json";
  */
 export const esDemo = process.env.ARMARIO_DEMO === "1";
 
-type Ejemplo = { prendas: unknown[]; outfits: { id: string; nombre: string; prendas: string[]; ocasion?: string }[]; compras: AltaCompra[] };
+type Ejemplo = { prendas: unknown[]; outfits: { id: string; nombre: string; prendas: string[]; ocasion?: string; foto?: string; collage?: string }[]; compras: AltaCompra[] };
 
 const TABLAS = ["armario_usos", "armario_lavados", "armario_mensajes", "armario_enlaces", "armario_compras", "armario_outfits", "armario_prendas"] as const;
 
@@ -25,7 +25,7 @@ async function reiniciar(): Promise<void> {
     const p = limpiarPrenda(bruto);
     if (p) await altaPrenda(p, (bruto as { id: string }).id);
   }
-  for (const o of datos.outfits) await altaOutfit({ id: o.id, nombre: o.nombre, prendas: o.prendas, ocasion: o.ocasion ?? null });
+  for (const o of datos.outfits) await altaOutfit({ id: o.id, nombre: o.nombre, prendas: o.prendas, ocasion: o.ocasion ?? null, foto: o.foto ?? null, collage: o.collage ?? null });
   for (const c of datos.compras) await altaCompra(c);
 
   // Historial de muestra que respeta las reglas: tres días usados y una carga lavada.

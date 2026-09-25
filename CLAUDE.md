@@ -28,6 +28,7 @@ App personal de armario: qué ponerse cada día según lo que está limpio, lava
 - Combinaciones: `id` numerado (`01`, `02`) y `prendas` es la lista de ids.
 - Para cargar o actualizar en bloque: `datos/<archivo>.json` con el formato de `datos/ejemplo.json` y `npm run cargar -- datos/<archivo>.json`. Es idempotente para prendas y combinaciones.
 - Borrar datos de la base es irreversible: pide permiso explícito antes.
+- Imágenes: `foto` de prenda = recorte SIN fondo (WebP/PNG) en `public/`; `collage` de combinación = JPG 2:3 que genera `python3 scripts/collages.py <archivo.json>` (Pillow). Las del ejemplo viven en `public/ejemplo/`. Nunca subas fotos de catálogo de una tienda: son de la tienda.
 
 ## Modo demo
 

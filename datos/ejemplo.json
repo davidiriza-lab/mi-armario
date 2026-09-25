@@ -1,33 +1,272 @@
 {
-  "_nota": "Armario de EJEMPLO para ver la app funcionando. Cárgalo con: npm run cargar -- datos/ejemplo.json. Para el tuyo, copia este archivo a datos/mi-armario.json (no se sube a git) y pídele a Claude que lo llene contigo.",
+  "_nota": "Armario de EJEMPLO con piezas reales de Zara México (nombres, referencias y composición de su catálogo, septiembre de 2026). Las imágenes son ilustraciones generadas con IA a partir de esas piezas, no fotos de Zara. Cárgalo con: npm run cargar -- datos/ejemplo.json. Para el tuyo, copia este archivo a datos/mi-armario.json (no se sube a git) y pídele a Claude que lo llene contigo.",
   "prendas": [
-    { "id": "playera-negra", "nombre": "Playera negra", "tipo": "top", "color": "#1c1c1c", "tienda": "Zara", "talla": "M", "composicion": "100% algodón" },
-    { "id": "playera-gris", "nombre": "Playera gris medio", "tipo": "top", "color": "#8a8d91", "tienda": "C&A", "talla": "M", "composicion": "100% algodón" },
-    { "id": "playera-crudo", "nombre": "Playera crudo", "tipo": "top", "color": "#ece6d8", "tienda": "Zara", "talla": "M", "composicion": "100% algodón" },
-    { "id": "polo-marino", "nombre": "Polo piqué marino", "tipo": "top", "color": "#1f2a44", "tienda": "Pull&Bear", "talla": "M", "composicion": "100% algodón" },
-    { "id": "camisa-oxford", "nombre": "Camisa oxford azul", "tipo": "top", "color": "#a9bdd6", "tienda": "Zara", "talla": "M", "composicion": "100% algodón" },
-    { "id": "sobrecamisa-olivo", "nombre": "Sobrecamisa olivo", "tipo": "capa", "color": "#5a5e45", "tienda": "Zara", "talla": "M", "composicion": "100% algodón" },
-    { "id": "chaqueta-negra", "nombre": "Chaqueta trucker negra", "tipo": "capa", "color": "#141414", "tienda": "Pull&Bear", "talla": "M", "composicion": "100% algodón" },
-    { "id": "blazer-marino", "nombre": "Blazer marino", "tipo": "capa", "color": "#1b2233", "tienda": "Zara", "talla": "50", "composicion": "70% lana, 30% poliéster", "tintoreria": true, "cuidado": "Solo limpieza en seco" },
-    { "id": "pantalon-negro", "nombre": "Pantalón negro recto", "tipo": "pant", "color": "#1a1a1a", "tienda": "Zara", "talla": "32", "composicion": "98% algodón, 2% elastano" },
-    { "id": "chino-beige", "nombre": "Chino beige", "tipo": "pant", "color": "#cbb994", "tienda": "C&A", "talla": "32", "composicion": "98% algodón, 2% elastano" },
-    { "id": "pantalon-gris", "nombre": "Pantalón gris piedra", "tipo": "pant", "color": "#b5b3aa", "tienda": "C&A", "talla": "32", "composicion": "100% algodón" },
-    { "id": "tenis-blancos", "nombre": "Tenis blancos", "tipo": "zapato", "color": "#f4f4f2", "tienda": "Zara" }
+    {
+      "id": "playera-negra",
+      "nombre": "Playera heavyweight negra",
+      "tipo": "top",
+      "color": "#1e1e1e",
+      "tienda": "Zara",
+      "ref": "1887/410/800",
+      "talla": "M",
+      "foto": "/ejemplo/prendas/playera-negra.webp",
+      "composicion": "100% algodón"
+    },
+    {
+      "id": "playera-gris",
+      "nombre": "Playera interlock gris medio",
+      "tipo": "top",
+      "color": "#a7a7a7",
+      "tienda": "Zara",
+      "ref": "5584/471/809",
+      "talla": "M",
+      "foto": "/ejemplo/prendas/playera-gris.webp",
+      "composicion": "94% algodón, 6% elastano"
+    },
+    {
+      "id": "playera-crudo",
+      "nombre": "Playera con bolsillo crudo",
+      "tipo": "top",
+      "color": "#efece4",
+      "tienda": "Zara",
+      "ref": "0526/417/712",
+      "talla": "M",
+      "foto": "/ejemplo/prendas/playera-crudo.webp",
+      "composicion": "100% algodón"
+    },
+    {
+      "id": "polo-marino",
+      "nombre": "Polo piqué rayas marino",
+      "tipo": "top",
+      "color": "#171e29",
+      "tienda": "Zara",
+      "ref": "4231/342/422",
+      "talla": "M",
+      "foto": "/ejemplo/prendas/polo-marino.webp",
+      "composicion": "100% algodón"
+    },
+    {
+      "id": "camisa-oxford",
+      "nombre": "Camisa oxford celeste",
+      "tipo": "top",
+      "color": "#d7dfed",
+      "tienda": "Zara",
+      "ref": "1195/330/403",
+      "talla": "M",
+      "foto": "/ejemplo/prendas/camisa-oxford.webp",
+      "composicion": "100% algodón"
+    },
+    {
+      "id": "sobrecamisa-khaki",
+      "nombre": "Sobrecamisa khaki con bolsillos",
+      "tipo": "capa",
+      "color": "#4f4e3b",
+      "tienda": "Zara",
+      "ref": "1063/502/505",
+      "talla": "M",
+      "foto": "/ejemplo/prendas/sobrecamisa-khaki.webp",
+      "composicion": "100% algodón"
+    },
+    {
+      "id": "chaqueta-negra",
+      "nombre": "Chamarra de mezclilla negra",
+      "tipo": "capa",
+      "color": "#232425",
+      "tienda": "Zara",
+      "ref": "6987/314/800",
+      "talla": "M",
+      "foto": "/ejemplo/prendas/chaqueta-negra.webp",
+      "composicion": "100% algodón"
+    },
+    {
+      "id": "blazer-marino",
+      "nombre": "Blazer marino con lana",
+      "tipo": "capa",
+      "color": "#2c2e3a",
+      "tienda": "Zara",
+      "ref": "6406/191/401",
+      "talla": "50",
+      "foto": "/ejemplo/prendas/blazer-marino.webp",
+      "composicion": "59% poliéster, 41% lana",
+      "tintoreria": true,
+      "cuidado": "Solo limpieza en seco"
+    },
+    {
+      "id": "pantalon-negro",
+      "nombre": "Pantalón recto negro",
+      "tipo": "pant",
+      "color": "#252525",
+      "tienda": "Zara",
+      "ref": "6786/801/800",
+      "talla": "42",
+      "foto": "/ejemplo/prendas/pantalon-negro.webp",
+      "composicion": "65% liocel, 35% algodón"
+    },
+    {
+      "id": "chino-beige",
+      "nombre": "Chino beige claro",
+      "tipo": "pant",
+      "color": "#d9d4c8",
+      "tienda": "Zara",
+      "ref": "0706/650/052",
+      "talla": "42",
+      "foto": "/ejemplo/prendas/chino-beige.webp",
+      "composicion": "63% poliéster, 32% viscosa, 5% elastano"
+    },
+    {
+      "id": "pantalon-gris",
+      "nombre": "Chino gris perla",
+      "tipo": "pant",
+      "color": "#bfbfc0",
+      "tienda": "Zara",
+      "ref": "0706/650/804",
+      "talla": "42",
+      "foto": "/ejemplo/prendas/pantalon-gris.webp",
+      "composicion": "63% poliéster, 32% viscosa, 5% elastano"
+    },
+    {
+      "id": "tenis-blancos",
+      "nombre": "Tenis minimal blancos",
+      "tipo": "zapato",
+      "color": "#f2f1ee",
+      "tienda": "Zara",
+      "ref": "2200/720/001",
+      "talla": "27",
+      "foto": "/ejemplo/prendas/tenis-blancos.webp"
+    }
   ],
   "outfits": [
-    { "id": "01", "nombre": "Columna oscura", "prendas": ["playera-negra", "chaqueta-negra", "pantalon-negro"], "ocasion": "casual" },
-    { "id": "02", "nombre": "Gris sobre negro", "prendas": ["playera-gris", "chaqueta-negra", "pantalon-negro"], "ocasion": "casual" },
-    { "id": "03", "nombre": "Olivo como foco", "prendas": ["playera-negra", "sobrecamisa-olivo", "pantalon-negro"], "ocasion": "casual" },
-    { "id": "04", "nombre": "Claro enmarcado", "prendas": ["playera-crudo", "sobrecamisa-olivo", "chino-beige"], "ocasion": "casual" },
-    { "id": "05", "nombre": "Polo y beige", "prendas": ["polo-marino", "chino-beige"], "ocasion": "casual" },
-    { "id": "06", "nombre": "Oxford y gris", "prendas": ["camisa-oxford", "pantalon-gris"], "ocasion": "trabajo" },
-    { "id": "07", "nombre": "Junta", "prendas": ["camisa-oxford", "blazer-marino", "pantalon-negro"], "ocasion": "formal" },
-    { "id": "08", "nombre": "Blazer relajado", "prendas": ["playera-crudo", "blazer-marino", "pantalon-gris"], "ocasion": "formal" },
-    { "id": "09", "nombre": "Gris total", "prendas": ["playera-gris", "pantalon-gris"], "ocasion": "casual" },
-    { "id": "10", "nombre": "Marino y negro", "prendas": ["polo-marino", "chaqueta-negra", "pantalon-negro"], "ocasion": "casual" }
+    {
+      "id": "01",
+      "nombre": "Columna oscura",
+      "prendas": [
+        "playera-negra",
+        "chaqueta-negra",
+        "pantalon-negro"
+      ],
+      "ocasion": "casual",
+      "collage": "/ejemplo/outfits/01.jpg"
+    },
+    {
+      "id": "02",
+      "nombre": "Gris sobre negro",
+      "prendas": [
+        "playera-gris",
+        "chaqueta-negra",
+        "pantalon-negro"
+      ],
+      "ocasion": "casual",
+      "collage": "/ejemplo/outfits/02.jpg"
+    },
+    {
+      "id": "03",
+      "nombre": "Khaki como foco",
+      "prendas": [
+        "playera-negra",
+        "sobrecamisa-khaki",
+        "pantalon-negro"
+      ],
+      "ocasion": "casual",
+      "collage": "/ejemplo/outfits/03.jpg"
+    },
+    {
+      "id": "04",
+      "nombre": "Claro enmarcado",
+      "prendas": [
+        "playera-crudo",
+        "sobrecamisa-khaki",
+        "chino-beige"
+      ],
+      "ocasion": "casual",
+      "collage": "/ejemplo/outfits/04.jpg"
+    },
+    {
+      "id": "05",
+      "nombre": "Polo y beige",
+      "prendas": [
+        "polo-marino",
+        "chino-beige"
+      ],
+      "ocasion": "casual",
+      "collage": "/ejemplo/outfits/05.jpg"
+    },
+    {
+      "id": "06",
+      "nombre": "Oxford y gris",
+      "prendas": [
+        "camisa-oxford",
+        "pantalon-gris"
+      ],
+      "ocasion": "trabajo",
+      "collage": "/ejemplo/outfits/06.jpg"
+    },
+    {
+      "id": "07",
+      "nombre": "Junta",
+      "prendas": [
+        "camisa-oxford",
+        "blazer-marino",
+        "pantalon-negro"
+      ],
+      "ocasion": "formal",
+      "collage": "/ejemplo/outfits/07.jpg"
+    },
+    {
+      "id": "08",
+      "nombre": "Blazer relajado",
+      "prendas": [
+        "playera-crudo",
+        "blazer-marino",
+        "pantalon-gris"
+      ],
+      "ocasion": "formal",
+      "collage": "/ejemplo/outfits/08.jpg"
+    },
+    {
+      "id": "09",
+      "nombre": "Gris total",
+      "prendas": [
+        "playera-gris",
+        "pantalon-gris"
+      ],
+      "ocasion": "casual",
+      "collage": "/ejemplo/outfits/09.jpg"
+    },
+    {
+      "id": "10",
+      "nombre": "Marino y negro",
+      "prendas": [
+        "polo-marino",
+        "chaqueta-negra",
+        "pantalon-negro"
+      ],
+      "ocasion": "casual",
+      "collage": "/ejemplo/outfits/10.jpg"
+    }
   ],
   "compras": [
-    { "tienda": "Zara", "nombre": "Sobrecamisa de pana café", "nivel": 1, "talla": "M", "color_hex": "#5b4636", "color_nombre": "café tabaco", "nota": "Tercera capa para rotar." },
-    { "tienda": "C&A", "nombre": "Playera textura gofre gris", "nivel": 2, "talla": "M", "color_hex": "#7d8084", "color_nombre": "gris medio" }
+    {
+      "tienda": "Zara",
+      "nombre": "Sobrecamisa relax fit de pana",
+      "ref": "6318/462/752",
+      "precio": 1399,
+      "nivel": 1,
+      "talla": "M",
+      "color_hex": "#d8cdb8",
+      "color_nombre": "arena claro",
+      "nota": "Tercera capa para rotar con la khaki.",
+      "url": "https://www.zara.com/mx/es/sobrecamisa-relax-fit-pana-p06318462.html?v1=551152355"
+    },
+    {
+      "tienda": "Zara",
+      "nombre": "Playera de punto relaxed fit",
+      "ref": "4805/311/806",
+      "precio": 849,
+      "nivel": 2,
+      "talla": "M",
+      "color_hex": "#b9ad98",
+      "color_nombre": "piedra",
+      "url": "https://www.zara.com/mx/es/playera-punto-relaxed-fit-p04805311.html?v1=545430568"
+    }
   ]
 }

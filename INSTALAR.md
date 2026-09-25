@@ -70,6 +70,19 @@ npm run cargar -- datos/mi-armario.json.
 
 Para agregar una prenda suelta después, usa la pantalla **Armario** desde el celular.
 
+**Opcional: collages con fotos de tus prendas.** Sin fotos, cada combinación se ve como franjas de color. Con fotos, se ve como el ejemplo.
+
+**CLAUDE.**
+
+```
+Quiero collages de mis combinaciones. Te voy a mandar una foto de cada prenda sobre un
+fondo liso. Quítale el fondo a cada una, guárdala como WebP sin fondo en
+public/mis-prendas/<id>.webp y pon esa ruta en "foto" de la prenda en
+datos/mi-armario.json. Luego pon "collage": "/mis-outfits/<id>.jpg" en cada combinación,
+corre python3 scripts/collages.py datos/mi-armario.json y vuelve a cargar el archivo con
+npm run cargar -- datos/mi-armario.json --sin-compras.
+```
+
 ## 6. Hazla tuya
 
 **CLAUDE.**
