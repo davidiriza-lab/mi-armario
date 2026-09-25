@@ -1,0 +1,33 @@
+{
+  "_nota": "Armario de EJEMPLO para ver la app funcionando. Cárgalo con: npm run cargar -- datos/ejemplo.json. Para el tuyo, copia este archivo a datos/mi-armario.json (no se sube a git) y pídele a Claude que lo llene contigo.",
+  "prendas": [
+    { "id": "playera-negra", "nombre": "Playera negra", "tipo": "top", "color": "#1c1c1c", "tienda": "Zara", "talla": "M", "composicion": "100% algodón" },
+    { "id": "playera-gris", "nombre": "Playera gris medio", "tipo": "top", "color": "#8a8d91", "tienda": "C&A", "talla": "M", "composicion": "100% algodón" },
+    { "id": "playera-crudo", "nombre": "Playera crudo", "tipo": "top", "color": "#ece6d8", "tienda": "Zara", "talla": "M", "composicion": "100% algodón" },
+    { "id": "polo-marino", "nombre": "Polo piqué marino", "tipo": "top", "color": "#1f2a44", "tienda": "Pull&Bear", "talla": "M", "composicion": "100% algodón" },
+    { "id": "camisa-oxford", "nombre": "Camisa oxford azul", "tipo": "top", "color": "#a9bdd6", "tienda": "Zara", "talla": "M", "composicion": "100% algodón" },
+    { "id": "sobrecamisa-olivo", "nombre": "Sobrecamisa olivo", "tipo": "capa", "color": "#5a5e45", "tienda": "Zara", "talla": "M", "composicion": "100% algodón" },
+    { "id": "chaqueta-negra", "nombre": "Chaqueta trucker negra", "tipo": "capa", "color": "#141414", "tienda": "Pull&Bear", "talla": "M", "composicion": "100% algodón" },
+    { "id": "blazer-marino", "nombre": "Blazer marino", "tipo": "capa", "color": "#1b2233", "tienda": "Zara", "talla": "50", "composicion": "70% lana, 30% poliéster", "tintoreria": true, "cuidado": "Solo limpieza en seco" },
+    { "id": "pantalon-negro", "nombre": "Pantalón negro recto", "tipo": "pant", "color": "#1a1a1a", "tienda": "Zara", "talla": "32", "composicion": "98% algodón, 2% elastano" },
+    { "id": "chino-beige", "nombre": "Chino beige", "tipo": "pant", "color": "#cbb994", "tienda": "C&A", "talla": "32", "composicion": "98% algodón, 2% elastano" },
+    { "id": "pantalon-gris", "nombre": "Pantalón gris piedra", "tipo": "pant", "color": "#b5b3aa", "tienda": "C&A", "talla": "32", "composicion": "100% algodón" },
+    { "id": "tenis-blancos", "nombre": "Tenis blancos", "tipo": "zapato", "color": "#f4f4f2", "tienda": "Zara" }
+  ],
+  "outfits": [
+    { "id": "01", "nombre": "Columna oscura", "prendas": ["playera-negra", "chaqueta-negra", "pantalon-negro"], "ocasion": "casual" },
+    { "id": "02", "nombre": "Gris sobre negro", "prendas": ["playera-gris", "chaqueta-negra", "pantalon-negro"], "ocasion": "casual" },
+    { "id": "03", "nombre": "Olivo como foco", "prendas": ["playera-negra", "sobrecamisa-olivo", "pantalon-negro"], "ocasion": "casual" },
+    { "id": "04", "nombre": "Claro enmarcado", "prendas": ["playera-crudo", "sobrecamisa-olivo", "chino-beige"], "ocasion": "casual" },
+    { "id": "05", "nombre": "Polo y beige", "prendas": ["polo-marino", "chino-beige"], "ocasion": "casual" },
+    { "id": "06", "nombre": "Oxford y gris", "prendas": ["camisa-oxford", "pantalon-gris"], "ocasion": "trabajo" },
+    { "id": "07", "nombre": "Junta", "prendas": ["camisa-oxford", "blazer-marino", "pantalon-negro"], "ocasion": "formal" },
+    { "id": "08", "nombre": "Blazer relajado", "prendas": ["playera-crudo", "blazer-marino", "pantalon-gris"], "ocasion": "formal" },
+    { "id": "09", "nombre": "Gris total", "prendas": ["playera-gris", "pantalon-gris"], "ocasion": "casual" },
+    { "id": "10", "nombre": "Marino y negro", "prendas": ["polo-marino", "chaqueta-negra", "pantalon-negro"], "ocasion": "casual" }
+  ],
+  "compras": [
+    { "tienda": "Zara", "nombre": "Sobrecamisa de pana café", "nivel": 1, "talla": "M", "color_hex": "#5b4636", "color_nombre": "café tabaco", "nota": "Tercera capa para rotar." },
+    { "tienda": "C&A", "nombre": "Playera textura gofre gris", "nivel": 2, "talla": "M", "color_hex": "#7d8084", "color_nombre": "gris medio" }
+  ]
+}

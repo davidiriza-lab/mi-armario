@@ -1,0 +1,484 @@
+@import "tailwindcss";
+
+/* Mi armario · sistema "Blanco y carbón": fondo blanco, tinta casi negra, un acento.
+   Cambia la paleta en :root (las variables --salvia* son el acento). */
+
+:root {
+  --lino: #ffffff;
+  --lino-2: #f4f4f2;
+  --papel: #ffffff;
+  --tinta: #1a1a1a;
+  --tinta-2: #55554f;
+  --tinta-3: #8a8a84;
+  --linea: rgba(20, 20, 20, 0.1);
+  --linea-2: rgba(20, 20, 20, 0.22);
+  /* acento por defecto: carbón (monocromo) */
+  --salvia: #1a1a1a;
+  --salvia-2: #000000;
+  --salvia-suave: rgba(20, 20, 20, 0.07);
+  --salvia-borde: rgba(20, 20, 20, 0.3);
+  --ambar: #b8702e;
+  --ambar-suave: rgba(184, 112, 46, 0.12);
+  --rojo: #b0433a;
+  --rojo-suave: rgba(176, 67, 58, 0.1);
+  --sombra: 0 1px 2px rgba(20, 20, 20, 0.04), 0 10px 30px -16px rgba(20, 20, 20, 0.22);
+  --sombra-alta: 0 2px 6px rgba(20, 20, 20, 0.05), 0 24px 56px -24px rgba(20, 20, 20, 0.32);
+  --display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --texto: var(--font-albert), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radio: 22px;
+  --radio-chico: 12px;
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-lino: var(--lino);
+  --color-papel: var(--papel);
+  --color-tinta: var(--tinta);
+  --color-salvia: var(--salvia);
+  --font-sans: var(--texto);
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  background: var(--lino);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--salvia);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+::selection {
+  background: var(--salvia-suave);
+}
+.skip {
+  position: absolute;
+  left: -999px;
+}
+.skip:focus {
+  left: 12px;
+  top: 12px;
+  background: var(--papel);
+  padding: 8px 12px;
+  z-index: 50;
+}
+
+/* ── Tipografía ─────────────────────────────────────────── */
+.display {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "SOFT" 100, "WONK" 0, "opsz" 72;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0;
+}
+.kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tinta-3);
+  margin: 0;
+}
+.etiqueta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--tinta-2);
+}
+.cifra {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+.suave {
+  color: var(--tinta-3);
+}
+.mini {
+  font-size: 0.82rem;
+  color: var(--tinta-2);
+}
+
+/* ── Superficies ────────────────────────────────────────── */
+.tarjeta {
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  padding: 1.1rem 1.15rem;
+  box-shadow: var(--sombra);
+}
+.tarjeta.hundida {
+  background: var(--lino-2);
+  box-shadow: none;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+.fila {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.separador {
+  border: 0;
+  border-top: 1px solid var(--linea);
+  margin: 0.9rem 0;
+}
+
+/* ── Controles ──────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--salvia);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.85rem 1.3rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 6px 18px -10px var(--salvia-borde);
+  transition: transform 0.12s ease, background 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.btn.ancho {
+  width: 100%;
+}
+/* Fila de acciones: una sola línea siempre; si no cabe, se desliza de lado sin barra visible. */
+.acciones {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin: -0.4rem -1rem 1rem;
+  padding: 0.25rem 1rem;
+}
+.acciones::-webkit-scrollbar {
+  display: none;
+}
+.btn:hover {
+  background: var(--salvia-2);
+}
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--tinta);
+  border: 1px solid var(--linea-2);
+  box-shadow: none;
+}
+.btn.ghost:hover {
+  background: var(--lino-2);
+}
+.btn.chico {
+  padding: 0.55rem 0.95rem;
+  font-size: 0.85rem;
+}
+.btn.peligro {
+  background: transparent;
+  color: var(--rojo);
+  border: 1px solid var(--rojo-suave);
+  box-shadow: none;
+}
+.input {
+  width: 100%;
+  background: var(--lino);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-chico);
+  padding: 0.8rem 0.95rem;
+  font-size: 16px;
+}
+.input:focus {
+  border-color: var(--salvia-borde);
+  outline: none;
+  box-shadow: 0 0 0 4px var(--salvia-suave);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.28rem 0.7rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  background: var(--lino-2);
+  color: var(--tinta-2);
+}
+.chip.ok {
+  background: var(--salvia-suave);
+  color: var(--salvia);
+}
+.chip.aviso {
+  background: var(--ambar-suave);
+  color: var(--ambar);
+}
+.chip.rojo {
+  background: var(--rojo-suave);
+  color: var(--rojo);
+}
+.aviso-rojo {
+  color: var(--rojo);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.nav-bar {
+  position: fixed;
+  left: 50%;
+  bottom: calc(env(safe-area-inset-bottom) + 12px);
+  transform: translateX(-50%);
+  width: min(440px, calc(100% - 24px));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: color-mix(in srgb, var(--papel) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  padding: 6px;
+  box-shadow: var(--sombra-alta);
+  z-index: 40;
+}
+.nav-bar a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px 6px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--tinta-3);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.nav-bar a svg {
+  width: 20px;
+  height: 20px;
+}
+.nav-bar a.activo {
+  background: var(--salvia-suave);
+  color: var(--salvia);
+}
+
+/* ── Animación de entrada ───────────────────────────────── */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ── Página ──────────────────────────────────────────────── */
+.pagina {
+  width: min(560px, 100%);
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top) + 1.4rem) 1.1rem calc(env(safe-area-inset-bottom) + 6.5rem);
+}
+.cabecera {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.cabecera h1 {
+  font-size: clamp(2rem, 8vw, 2.6rem);
+}
+.seccion {
+  margin-top: 1.6rem;
+}
+.seccion > .kicker {
+  margin-bottom: 0.6rem;
+}
+
+/* ── Vestir: tira de días para programar ─────────────────── */
+.tira-dias {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 0.25rem;
+  scrollbar-width: none;
+}
+.tira-dias::-webkit-scrollbar {
+  display: none;
+}
+.tira-dias .dia-btn {
+  flex: 0 0 calc((100% - 6 * 0.35rem) / 7);
+  scroll-snap-align: center;
+}
+.dia-btn.pasado {
+  opacity: 0.75;
+}
+.dia-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.55rem 0.2rem 0.45rem;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  cursor: pointer;
+  color: var(--tinta-2);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.dia-btn.activo {
+  border-color: var(--salvia);
+  background: var(--salvia-suave);
+  color: var(--tinta);
+}
+.dia-plan {
+  min-height: 1rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--salvia);
+  font-variant-numeric: tabular-nums;
+}
+.dia-plan.on::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--salvia);
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+/* ── Vestir: ver outfit en grande ────────────────────────── */
+.foto-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(20, 20, 20, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: calc(env(safe-area-inset-top) + 0.75rem) 0.75rem calc(env(safe-area-inset-bottom) + 0.75rem);
+  cursor: zoom-out;
+  animation: rise 0.2s ease both;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: calc(100dvh - 6.5rem);
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.8);
+}
+.lightbox-pie {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  color: #fff;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.lightbox-pie .mini {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.72rem;
+}
+
+/* ── Asesora: chat ────────────────────────────────────────── */
+.burbuja {
+  max-width: 88%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 18px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  border: 1px solid var(--linea);
+}
+.burbuja.user {
+  align-self: flex-end;
+  background: var(--salvia);
+  color: #fff;
+  border-color: var(--salvia);
+  border-bottom-right-radius: 6px;
+}
+.burbuja.user .chip {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+.burbuja.assistant {
+  align-self: flex-start;
+  background: var(--papel);
+  border-bottom-left-radius: 6px;
+  box-shadow: var(--sombra);
+}
+
+/* Lista de compras: miniatura de la prenda (foto de la ficha oficial) */
+.foto-compra {
+  flex: none;
+  width: 4.2rem;
+  height: 5.4rem;
+  border-radius: var(--radio-chico);
+  overflow: hidden;
+  background: var(--lino-2);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 0.66rem;
+}
+.foto-compra img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

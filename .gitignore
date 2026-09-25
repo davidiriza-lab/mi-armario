@@ -1,0 +1,26 @@
+# dependencias y build
+/node_modules
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+# secretos: NUNCA se suben
+.env*
+!.env.example
+
+# tu armario real y tus notas de sesión (se quedan en tu computadora)
+datos/*
+!datos/ejemplo.json
+STATE.md
+SESIONES.md
+
+# varios
+.DS_Store
+*.pem
+.vercel
+npm-debug.log*
+
+# archivos temporales de la CLI de Supabase
+supabase/.temp/
