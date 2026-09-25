@@ -5,6 +5,7 @@ import { ordenar, precioTexto, type Compra, type EstadoCompra } from "./compras-
 export { ordenar, precioTexto, type Compra, type EstadoCompra } from "./compras-orden";
 
 export async function listarCompras(): Promise<Compra[]> {
+  if (process.env.ARMARIO_DEMO === "1") await (await import("./demo")).asegurarDemoDelDia();
   const { data, error } = await db().from("armario_compras").select("*").order("id").limit(1000);
   if (error) throw new Error(`armario_compras: ${error.message}`);
   return ordenar((data ?? []).map((c) => ({ ...c, precio: c.precio === null ? null : Number(c.precio) })) as Compra[]);

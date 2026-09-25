@@ -5,6 +5,7 @@ export type Enlace = { id: number; token: string; nota: string | null; activo: b
 
 /** Ligas de solo lectura: abren Vestir sin contraseña y sin poder cambiar nada. */
 export async function listarEnlaces(): Promise<Enlace[]> {
+  if (process.env.ARMARIO_DEMO === "1") await (await import("./demo")).asegurarDemoDelDia();
   const { data, error } = await db().from("armario_enlaces").select("*").eq("activo", true).order("creado", { ascending: false }).limit(100);
   if (error) throw new Error(`armario_enlaces: ${error.message}`);
   return (data ?? []) as Enlace[];
@@ -24,6 +25,7 @@ export async function revocarEnlace(id: number): Promise<void> {
 
 /** Devuelve el enlace si el token es válido y está activo; registra la visita. */
 export async function validarToken(token: string | null | undefined): Promise<Enlace | null> {
+  if (process.env.ARMARIO_DEMO === "1") await (await import("./demo")).asegurarDemoDelDia();
   if (!token || !/^[A-Za-z0-9_-]{24}$/.test(token)) return null;
   const { data } = await db().from("armario_enlaces").select("*").eq("token", token).eq("activo", true).maybeSingle();
   if (!data) return null;

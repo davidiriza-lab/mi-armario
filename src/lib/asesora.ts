@@ -65,6 +65,7 @@ async function ejecutarTool(nombre: string, input: Record<string, unknown>): Pro
 }
 
 export async function listarMensajes(limit = 200): Promise<Mensaje[]> {
+  if (process.env.ARMARIO_DEMO === "1") await (await import("./demo")).asegurarDemoDelDia();
   const { data, error } = await db().from("armario_mensajes").select("id,rol,texto,fotos,creado").order("id", { ascending: false }).limit(limit);
   if (error) throw new Error(`armario_mensajes: ${error.message}`);
   return ((data ?? []) as Mensaje[]).reverse();

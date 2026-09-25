@@ -29,6 +29,10 @@ App personal de armario: qué ponerse cada día según lo que está limpio, lava
 - Para cargar o actualizar en bloque: `datos/<archivo>.json` con el formato de `datos/ejemplo.json` y `npm run cargar -- datos/<archivo>.json`. Es idempotente para prendas y combinaciones.
 - Borrar datos de la base es irreversible: pide permiso explícito antes.
 
+## Modo demo
+
+- `ARMARIO_DEMO=1` (`src/lib/demo.ts`) muestra la contraseña en la entrada y BORRA todas las tablas una vez al día para recargar `datos/ejemplo.json` con historial de muestra. Nunca lo actives en una versión con datos reales.
+
 ## La asesora
 
 - `src/lib/asesora.ts`: bucle manual de herramientas con `claude-opus-5` (cambiable con `ASESORA_MODELO`), esfuerzo `medium`, `web_fetch_20260209` y respaldo automático ante negativas (`fallbacks: "default"`). Maneja `pause_turn` reenviando el turno y `refusal` antes de leer el contenido.

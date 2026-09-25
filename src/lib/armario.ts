@@ -97,6 +97,7 @@ function falla(ctx: string, e: { message: string } | null): never {
 }
 
 export async function estadoArmario(dia: string = hoyISO()): Promise<EstadoArmario> {
+  if (process.env.ARMARIO_DEMO === "1") await (await import("./demo")).asegurarDemoDelDia();
   const hoy = hoyISO();
   const desde = sumarDias(dia < hoy ? dia : hoy, -VENTANA_DIAS);
   const [pr, of, us, lv, todos] = await Promise.all([
